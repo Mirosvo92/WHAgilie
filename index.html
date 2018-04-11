@@ -2,11 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=2">
     <title>Title</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+    <!-- Digital Watch -->
+    <h2 class="title">Digital Watch</h2>
+    <div class="digital-watch">
+        <span class="digital-watch__item js-digital-hour">00</span>
+        <span class="digital-watch__item">:</span>
+        <span class="digital-watch__item js-digital-minutes">00</span>
+        <span class="digital-watch__item">:</span>
+        <span class="digital-watch__item js-digital-seconds">00</span>
+    </div>
+    <!-- Analog watch -->
+    <h2 class="title">Analog watch</h2>
+    <div class="analog-watch">
+        <!-- hour -->
+        <div class="analog-watch__hour js-analog-hour">
+            <div class="analog-watch__hour-item"></div>
+        </div>
+        <!-- minutes -->
+        <div class="analog-watch__minutes js-analog-minutes">
+            <div class="analog-watch__minutes-item"></div>
+        </div>
+        <!-- seconds -->
+        <div class="analog-watch__seconds js-analog-seconds">
+            <div class="analog-watch__seconds-item"></div>
+        </div>
+    </div>
 <script src="common.js"></script>
 </body>
 </html>

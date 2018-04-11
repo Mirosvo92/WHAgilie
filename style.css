@@ -1,0 +1,114 @@
+.title{
+    width: 100%;
+    width: 100%;
+    font-size: 22px;
+    text-align: center;
+}
+
+
+.digital-watch{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 30px;
+    max-width: 50%;
+    width: 12%;
+    height: 28px;
+    border: 1px solid black;
+}
+
+.digital-watch__item{
+    font-size: 30px;
+}
+
+.analog-watch{
+    margin: 0 auto;
+    position: relative;
+    width: 19%;
+    height: 320px;
+    border-radius: 50%;
+    background-color: grey;
+}
+
+.analog-watch:after{
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 4%;
+    height: 4%;
+    z-index: 10;
+    border-radius: 50%;
+    background: #000;
+    transform: translate(-50%, -50%);
+}
+
+.analog-watch__hour-item{
+    position: absolute;
+    left: 48.75%;
+    top: 30%;
+    width: 2.5%;
+    height: 20%;
+    background: #000;
+    transform-origin: 50% 100%;
+}
+
+.analog-watch__minutes-item{
+    position: absolute;
+    left: 49%;
+    top: 10%;
+    width: 2%;
+    height: 40%;
+    background: #000;
+    transform-origin: 50% 100%;
+}
+
+
+.analog-watch__seconds-item{
+    position: absolute;
+    left: 49.5%;
+    top: 14%;
+    width: 1%;
+    height: 45%;
+    z-index: 2;
+    background: #000;
+    transform-origin: 50% 80%;
+}
+
+.analog-watch__hour, .analog-watch__minutes, .analog-watch__seconds{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+@-webkit-keyframes rotate {
+    100% {
+        -webkit-transform: rotateZ(360deg);
+        transform: rotateZ(360deg);
+    }
+}
+@keyframes rotate {
+    100% {
+        -webkit-transform: rotateZ(360deg);
+        transform: rotateZ(360deg);
+    }
+}
+
+.analog-watch__hour {
+    animation: rotate 43200s infinite linear;
+}
+.analog-watch__minutes {
+    animation: rotate 3600s infinite linear;
+}
+.analog-watch__seconds {
+    animation: rotate 60s infinite linear;
+}
