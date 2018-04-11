@@ -6,7 +6,6 @@ interface Clock {
 }
 // DigitalWatch class
 class DigitalWatch implements Clock {
-
     hour = new Date().getHours();
     minutes = new Date().getMinutes();
     seconds = new Date().getSeconds();
@@ -14,13 +13,10 @@ class DigitalWatch implements Clock {
     buildWatch(): void {
         buildDigitalWatch.call(this);
     }
-
 }
 // AnalogWatch class
 class AnalogWatch extends DigitalWatch {
-
     buildWatch(): void {
-        console.log(this);
         buildAnalogWatch.call(this);
     }
 }
@@ -30,9 +26,11 @@ function buildDigitalWatch(): void{
     let hourElement = document.querySelectorAll('.js-digital-hour');
     let minutesElement = document.querySelectorAll('.js-digital-minutes');
     let secondsElement = document.querySelectorAll('.js-digital-seconds');
+
     (<HTMLElement>hourElement[0]).innerHTML = this.hour;
     (<HTMLElement>minutesElement[0]).innerHTML = this.minutes;
     (<HTMLElement>secondsElement[0]).innerHTML = this.seconds;
+
     setInterval(() => {
         initNewTime.call(this);
         hourElement[0].innerHTML = this.hour;
@@ -46,7 +44,6 @@ function initNewTime(): void{
     this.minutes = new Date().getMinutes();
     this.seconds = new Date().getSeconds();
 }
-
 // function for build AnalogWatch
 function buildAnalogWatch(): void {
     let hourElement = document.querySelectorAll('.js-analog-hour');

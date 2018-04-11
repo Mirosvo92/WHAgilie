@@ -27,7 +27,6 @@ var AnalogWatch = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     AnalogWatch.prototype.buildWatch = function () {
-        console.log(this);
         buildAnalogWatch.call(this);
     };
     return AnalogWatch;
