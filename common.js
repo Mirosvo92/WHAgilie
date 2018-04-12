@@ -60,8 +60,8 @@ function buildAnalogWatch() {
     var minutesElement = document.querySelectorAll('.js-analog-minutes');
     var secondsElement = document.querySelectorAll('.js-analog-seconds');
     //hourElement
-    hourElement[0].style.transform = 'rotateZ(' + (this.hour * 30) + (this.minutes / 2) + 'deg)';
-    hourElement[0].style.webkitTransform = 'rotateZ(' + (this.hour * 30) + (this.minutes / 2) + 'deg)';
+    hourElement[0].style.transform = 'rotateZ(' + ((this.hour * 30) + (this.minutes / 2)) + 'deg)';
+    hourElement[0].style.webkitTransform = 'rotateZ(' + ((this.hour * 30) + (this.minutes / 2)) + 'deg)';
     // minutesElement
     minutesElement[0].style.transform = 'rotateZ(' + (this.minutes * 6) + 'deg)';
     minutesElement[0].style.webkitTransform = 'rotateZ(' + (this.minutes * 6) + 'deg)';

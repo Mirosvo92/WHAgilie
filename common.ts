@@ -50,8 +50,8 @@ function buildAnalogWatch(): void {
     let minutesElement = document.querySelectorAll('.js-analog-minutes');
     let secondsElement = document.querySelectorAll('.js-analog-seconds');
     //hourElement
-    (<HTMLElement>hourElement[0]).style.transform = 'rotateZ('+ (this.hour * 30) + (this.minutes / 2) +'deg)';
-    (<HTMLElement>hourElement[0]).style.webkitTransform  = 'rotateZ('+ (this.hour * 30) + (this.minutes / 2) +'deg)';
+    (<HTMLElement>hourElement[0]).style.transform = 'rotateZ('+ ((this.hour * 30) + (this.minutes / 2)) +'deg)';
+    (<HTMLElement>hourElement[0]).style.webkitTransform  = 'rotateZ('+ ((this.hour * 30) + (this.minutes / 2)) + 'deg)';
     // minutesElement
     (<HTMLElement>minutesElement[0]).style.transform = 'rotateZ('+ (this.minutes * 6) +'deg)';
     (<HTMLElement>minutesElement[0]).style.webkitTransform  = 'rotateZ('+ (this.minutes * 6) +'deg)';
