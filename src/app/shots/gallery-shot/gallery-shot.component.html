@@ -1,0 +1,26 @@
+<div class="gallery-shot">
+  <!-- navigation -->
+  <div class="gallery-shot__navigation">
+    <ul class="gallery-shot__navigation-list">
+      <li class="gallery-shot__navigation-list-item"
+          *ngFor="let shot of shotsList; let i = index"
+          [ngClass]="{activeImg: shot.id === idShot ? true : false}"
+          (click)="changeActiveImg(shot)"
+          animateGallery>
+        <img class="gallery-shot__navigation-list-img animate-none"
+            src="{{shot?.thumbnail}}"
+            alt="{{shot?.title}}"
+            (dblclick)="openImgPage()"
+            [routerLink]="['/shotsList', shot.id]"
+            animateShot>
+      </li>
+    </ul>
+  </div>
+  <!-- active photo -->
+  <div class="gallery-shot__active-photo">
+    <img class="gallery-shot__active-photo-img js-animate-active-photo"
+         src="{{activeShot?.avatar}}"
+         (dblclick)="openImgPage()"
+         animateShot>
+  </div>
+</div>

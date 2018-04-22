@@ -1,0 +1,12 @@
+.full-preview{
+  margin: 0 auto;
+  width: 50%;
+}
+
+.full-preview__img{
+  width: 100%;
+}
+
+.back-gallery{
+  cursor: pointer;
+}

@@ -1,0 +1,16 @@
+<div class="shots">
+  <ul class="shots__list" (scrolled)="updateScrollPosition($event)" scrollTracker>
+    <li class="shots__list-item"  *ngFor="let shot of shots; let i = index" >
+      <div *ngIf="i < limitShots">
+        <a class="shots__list-item-link" [routerLink]="['/shotsList', shot.id]" >
+          <img class="shots__list-item-img animate-none"
+            src="{{shot?.thumbnail}}"
+            alt="{{shot?.title}}"
+            animateShot
+            (mouseenter)="mouseHover(shot)"
+            (mouseleave)="mouseUnhover(shot)">
+        </a>
+      </div>
+    </li>
+  </ul>
+</div>
