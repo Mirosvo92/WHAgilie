@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {ShotsService} from '../shared/shots.service';
-import {DomSanitizer} from '@angular/platform-browser';
-import * as FileSaver from 'file-saver';
 
 @Component({
   selector: 'app-shots-list',
@@ -11,27 +9,17 @@ import * as FileSaver from 'file-saver';
 export class ShotsListComponent implements OnInit {
 
   shots: Array<any>;
+  isLoader = false;
 
-  constructor(private shotsService: ShotsService, private sanitizer: DomSanitizer) { }
+  constructor(private shotsService: ShotsService) { }
 
   ngOnInit() {
     // get data from service
     this.shotsService.getData()
-      .then((data) => this.shots = data['shots'])
-      .catch(error => console.log(error));
-  }
-  // method for sending image data
-  downloadClick(linkImg: string, name: string) {
-    this.shotsService.getImg(linkImg)
-      .then((data) => this.downloadImg(data, name))
-      .catch(error => console.log(error));
-  }
-  // we get blob object from shotsService
-  downloadImg(data: any, name: string) {
-    const blob = new Blob([data], {
-      type: 'application/octet-stream'
-    });
-    FileSaver.saveAs(blob, name + '.jpg');
+      .then((data) => {
+        this.shots = data['shots'];
+        this.isLoader = true;
+    }).catch(error => console.log(error));
   }
 
 }
