@@ -1,0 +1,72 @@
+.shots__list{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.shots__list-item{
+  padding: 10px 15px;
+  position: relative;
+  width: 25%;
+  list-style: none;
+}
+
+.shots__list-item-img {
+  max-height: 310px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.shots__list-item-link{
+  display: block;
+}
+
+.shot-description{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-top: 15%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 94%;
+  height: 94%;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.65);
+  opacity: 0;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+}
+
+.shot-description__title{
+  margin-bottom: 0;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 12px;
+  color: #fff;
+}
+
+.shot-description__button{
+  margin: 0 auto;
+  padding: 25px 40px;
+  width: 50%;
+  border: 1px solid #fff;
+  border-radius: 1px;
+}
+
+.shots__list-item:hover .shot-description{
+  opacity: 1;
+  padding: 10px 15px;
+  color: #fff;
+}

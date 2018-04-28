@@ -1,0 +1,16 @@
+<div class="shots">
+  <ul class="shots__list">
+    <li class="shots__list-item"  *ngFor="let shot of shots; let i = index" >
+      <a class="shots__list-item-link" >
+        <img class="shots__list-item-img"
+             src="{{shot?.thumbnail}}"
+             alt="{{shot?.title}}" >
+      </a>
+      <div class="shot-description">
+        <span class="shot-description__title" >{{shot?.title}}</span>
+        <button (click)="testMethod()" class="shot-description__button">download</button>
+      </div>
+    </li>
+  </ul>
+</div>
+
