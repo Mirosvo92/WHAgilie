@@ -20,19 +20,18 @@ export class ShotsListComponent implements OnInit {
       .then((data) => this.shots = data['shots'])
       .catch(error => console.log(error));
   }
-
-  testMethod() {
-    const link = 'http://api.mobile.design/uploads/shots/239d30d434bb80223407f9e375a64e6790bd9234.?1505722325';
-    this.shotsService.getImg(link)
-      .then((data) => this.downloadImg(data))
+  // method for sending image data
+  downloadClick(linkImg: string, name: string) {
+    this.shotsService.getImg(linkImg)
+      .then((data) => this.downloadImg(data, name))
       .catch(error => console.log(error));
   }
-
-  downloadImg(data: any) {
+  // we get blob object from shotsService
+  downloadImg(data: any, name: string) {
     const blob = new Blob([data], {
       type: 'application/octet-stream'
     });
-    FileSaver.saveAs(blob, 'shot-image.jpg');
+    FileSaver.saveAs(blob, name + '.jpg');
   }
 
 }

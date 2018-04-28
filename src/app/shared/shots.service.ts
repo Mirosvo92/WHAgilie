@@ -29,7 +29,7 @@ export class ShotsService {
     const apiLink = link;
     const promise =  new Promise((resolve, reject) => {
       setTimeout(() => {
-        this.httpClient.get(apiLink,{responseType: 'blob'})
+        this.httpClient.get(apiLink, {responseType: 'blob'})
           .subscribe(data => {
             console.log(data);
             resolve(data);

@@ -8,7 +8,7 @@
       </a>
       <div class="shot-description">
         <span class="shot-description__title" >{{shot?.title}}</span>
-        <button (click)="testMethod()" class="shot-description__button">download</button>
+        <button (click)="downloadClick(shot.thumbnail, shot?.title)" class="shot-description__button">download</button>
       </div>
     </li>
   </ul>
