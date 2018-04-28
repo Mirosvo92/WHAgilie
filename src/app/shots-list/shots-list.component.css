@@ -1,13 +1,14 @@
 .loader{
-  background: none repeat scroll 0 0 #ffffff;
-  bottom: 0;
-  height: 100%;
-  left: 0;
   position: fixed;
+  bottom: 0;
+  left: 0;
   right: 0;
   top: 0;
-  width: 100%;
   z-index: 99;
+  height: 100%;
+  width: 100%;
+  opacity: 1;
+  background: none repeat scroll 0 0 #ffffff;
 }
 
 .loader__item{
@@ -74,8 +75,8 @@
   text-align: center;
   background-color: rgba(0, 0, 0, 0.65);
   opacity: 0;
-  transition: all 0.5s;
-  -webkit-transition: all 0.5s;
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
 }
 
 .shots__list-item:hover .shot-description{

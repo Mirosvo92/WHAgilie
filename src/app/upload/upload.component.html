@@ -1,0 +1,12 @@
+<div class="result">{{ resultLink }}</div>
+<!-- button -->
+<div class="upload">
+  <label class="upload__button" for="upload-file"
+         [ngClass]="{'upload__button--none': !isActiveLabel}" >upload</label>
+  <!-- hidden input -->
+  <input id="upload-file" class="hidden-input" type="file" (change)="onFileChange($event)">
+  <!-- hidden progress -->
+  <div class="progress"
+       [ngClass]="{'progress--active': !isActiveLabel}"
+       [style.width]=" progress + '%' " ></div>
+</div>
