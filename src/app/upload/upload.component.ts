@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import {UploadService} from '../shared/upload.service';
-import {HttpEventType, HttpHeaderResponse, HttpResponse} from '@angular/common/http';
-
+import {UploadService} from '../shared/services/upload.service';
 
 @Component({
   selector: 'app-upload',
   templateUrl: './upload.component.html',
   styleUrls: ['./upload.component.css']
 })
+
 export class UploadComponent implements OnInit {
   // options for httpClient
   options = {
@@ -35,12 +34,12 @@ export class UploadComponent implements OnInit {
       // post
       this.uploadService.uploadUserFile('https://file.io', formData, this.options).subscribe(events => {
         // when file loading
-        if (events['type'] === 1) {
-          this.progress = 100 * events['loaded'] / events['total'];
+        if (events.type === 1) {
+          this.progress = 100 * events.loaded / events.total;
           this.isActiveLabel = false;
           // when file loaded
-        } else if (events['type'] === 4) {
-          this.resultLink = 'You link: ' + events['body']['link'];
+        } else if (events.type === 4) {
+          this.resultLink = 'You link: ' + events.body.link;
           this.isActiveLabel = true;
         }
       });

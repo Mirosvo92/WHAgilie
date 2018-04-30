@@ -1,14 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 // services
-import {ShotsService} from './shared/shots.service';
-import {UploadService} from './shared/upload.service';
+import {ShotsService} from './shared/services/shots.service';
+import {UploadService} from './shared/services/upload.service';
 // components
 import { AppComponent } from './app.component';
 import { ShotsListComponent } from './shots-list/shots-list.component';
 import { UploadComponent } from './upload/upload.component';
 import {DownloadShotComponent} from './shots-list/download-shot/download-shot.component';
+import { TestPipesComponent } from './test-pipes/test-pipes.component';
+// module
+import {PipesModule} from './shared/pipes/pipes.module';
 
 
 @NgModule({
@@ -16,13 +19,18 @@ import {DownloadShotComponent} from './shots-list/download-shot/download-shot.co
     AppComponent,
     ShotsListComponent,
     UploadComponent,
-    DownloadShotComponent
+    DownloadShotComponent,
+    TestPipesComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    PipesModule
   ],
-  providers: [ShotsService, UploadService],
+  providers: [
+    ShotsService,
+    UploadService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

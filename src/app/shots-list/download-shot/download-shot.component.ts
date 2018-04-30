@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import * as FileSaver from 'file-saver';
-import {ShotsService} from '../../shared/shots.service';
+import {ShotsService} from '../../shared/services/shots.service';
 
 @Component({
   selector: 'app-download-shot',

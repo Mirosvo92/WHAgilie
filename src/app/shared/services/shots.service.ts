@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 
 
@@ -8,7 +8,7 @@ export class ShotsService {
 
   constructor(private httpClient: HttpClient) { }
   // get all shots
-  getData() {
+  getData(): Promise<any>  {
     const apiLink = 'http://api.mobile.design/api/shots?page=1&per_page=24';
     const promise =  new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -25,12 +25,11 @@ export class ShotsService {
     return promise;
   }
   // download image
-  getImg(link: string) {
+  getImg(link: string): Promise<any> {
     const apiLink = link;
     const promise =  new Promise((resolve, reject) => {
       setTimeout(() => {
-        this.httpClient.get(apiLink, {responseType: 'blob'})
-          .subscribe(data => {
+        this.httpClient.get(apiLink, {responseType: 'blob'}).subscribe(data => {
             console.log(data);
             resolve(data);
           }, (error => {
