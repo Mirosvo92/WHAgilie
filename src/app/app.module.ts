@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+// interceptors
 import {PaginationInterceptor} from './shared/interceptors/pagination.interceptor';
-
+import {CatchErrorsInterceptor} from './shared/interceptors/catchErrors.interceptor';
 // services
 import {ShotsService} from './shared/services/shots.service';
 import {UploadService} from './shared/services/upload.service';
@@ -14,6 +15,9 @@ import {DownloadShotComponent} from './shots-list/download-shot/download-shot.co
 import { TestPipesComponent } from './test-pipes/test-pipes.component';
 // module
 import {PipesModule} from './shared/pipes/pipes.module';
+// directives
+import {AnimateAppDirective} from './shared/direcrives/animation.dorective';
+
 
 
 
@@ -24,12 +28,13 @@ import {PipesModule} from './shared/pipes/pipes.module';
     ShotsListComponent,
     UploadComponent,
     DownloadShotComponent,
-    TestPipesComponent
+    TestPipesComponent,
+    AnimateAppDirective
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    PipesModule
+    PipesModule,
   ],
   providers: [
     ShotsService,
@@ -37,6 +42,11 @@ import {PipesModule} from './shared/pipes/pipes.module';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: PaginationInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: CatchErrorsInterceptor,
       multi: true
     }
   ],

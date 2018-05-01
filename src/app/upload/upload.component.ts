@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UploadService} from '../shared/services/upload.service';
 
+
 @Component({
   selector: 'app-upload',
   templateUrl: './upload.component.html',

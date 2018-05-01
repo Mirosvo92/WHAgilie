@@ -3,8 +3,6 @@ import {Observable} from 'rxjs/Observable';
 
 export class PaginationInterceptor implements HttpInterceptor {
 
-  pendingRequest = {};
-
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     let cloneReq = req.clone();
     // if not specified per_page
