@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {PaginationInterceptor} from './shared/interceptors/pagination.interceptor';
+
 // services
 import {ShotsService} from './shared/services/shots.service';
 import {UploadService} from './shared/services/upload.service';
@@ -12,6 +14,8 @@ import {DownloadShotComponent} from './shots-list/download-shot/download-shot.co
 import { TestPipesComponent } from './test-pipes/test-pipes.component';
 // module
 import {PipesModule} from './shared/pipes/pipes.module';
+
+
 
 
 @NgModule({
@@ -30,6 +34,11 @@ import {PipesModule} from './shared/pipes/pipes.module';
   providers: [
     ShotsService,
     UploadService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: PaginationInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

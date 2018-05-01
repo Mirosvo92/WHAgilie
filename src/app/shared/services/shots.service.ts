@@ -1,18 +1,20 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 
 
 
 @Injectable()
 export class ShotsService {
 
+  params = new HttpParams().set('per_page', '24');
   constructor(private httpClient: HttpClient) { }
   // get all shots
   getData(): Promise<any>  {
-    const apiLink = 'http://api.mobile.design/api/shots?page=1&per_page=24';
+    const apiLink = 'http://api.mobile.design/api/shots?page=1';
+    const self = this;
     const promise =  new Promise((resolve, reject) => {
       setTimeout(() => {
-        this.httpClient.get(apiLink)
+        this.httpClient.get(apiLink, { params: this.params })
           .subscribe(data => {
             // console.log(data);
             resolve(data);
